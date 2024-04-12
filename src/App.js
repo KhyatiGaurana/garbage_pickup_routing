@@ -40,7 +40,7 @@ const App = () => {
         const firstelement = jsonData.field1;
         // const binlevel = firstelement.substring(0, firstelement.length - 3);
         const newData = [
-          firstelement,
+          "38",
           jsonData.field2,
           jsonData.field3,
           jsonData.field4,
