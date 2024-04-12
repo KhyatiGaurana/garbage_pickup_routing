@@ -28,7 +28,7 @@ const App = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.thingspeak.com/channels/2500040/feeds/last.json?api_key=WSJVNVF11I2FDBUF"
+          "https://api.thingspeak.com/channels/2500040/feeds/last.json?api_key=WSJVNVF11I2FDBUF",
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -38,14 +38,15 @@ const App = () => {
         console.log(jsonData);
 
         const firstelement = jsonData.field1;
-        const binlevel = firstelement.substring(0, firstelement.length - 3);
+        // const binlevel = firstelement.substring(0, firstelement.length - 3);
         const newData = [
-          binlevel,
+          firstelement,
           jsonData.field2,
           jsonData.field3,
           jsonData.field4,
         ];
         setApiData(newData);
+        console.log(newData);
         setExistingArray((prevArray) => {
           const newArray = [...prevArray];
           newArray[0] = newData;
